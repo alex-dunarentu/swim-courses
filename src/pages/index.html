@@ -1,0 +1,59 @@
+---
+eleventyComputed:
+  title: "{{ meta.siteName }}"
+  description: "{{ meta.siteDescription }}"
+---
+
+{% extends "base.html" %}
+
+{% block styles %}
+  {% set css %}
+  {% include "../assets/styles/pages/index.css" %}
+  {% endset %}
+  <style>
+    {{css | cssmin | safe}}
+  </style>
+{% endblock %}
+
+{% block content %}
+  <div class="Hero">
+    <img src="/assets/images/logo.svg" alt="{{ meta.siteName }}"/>
+    <h1 class="Title">Cursuri de înot</h1>
+    <h2 class="Description">
+       Rusen Alin, instructor de înot care a urcat treptele podiumului atât pe plan național cât și internațional, vă invită să descoperiți înotul alături de el la Complexul Sportiv Național Lia Manoliu.
+    </h2>
+  </div>
+  <div class="Content">
+    {% set cards = [
+      {
+        title: 'Despre',
+        description: 'Informații despre instructorul Rusen Alin.',
+        url: '/despre/'
+      }, {
+        title: 'Tarife',
+        description: 'Tarifele aplicabile cursurilor de înot și activităților care se desfășoară în cadrul complexului.',
+        url: '/tarife/'
+      }, {
+        title: 'Program de funcționare',
+        description: 'Informații despre programul de funcționare.',
+        url: '/program/'
+      }
+    ] %}
+    <div class="Cards">
+      {% for card in cards %}
+        <sc-card title='{{ card.title }}' description='{{ card.description }}' url='{{ card.url }}'></sc-card>
+      {% endfor %}
+    </div>
+    <div class="Contact">
+      <h1 class="Title">Contact</h1>
+      <form action="https://formspree.io/f/xwkjpazr" method="POST" class="ContactForm">
+        <sc-form-input type="hidden" name="_subject" value="Cursuri înot TmT: Mesaj nou"></sc-form-input>
+        <sc-form-input required="true" placeholder="Nume" type="text" id="name" name="name"></sc-form-input>
+        <sc-form-input required="true" placeholder="Telefon" type="tel" id="phone" name="phone"></sc-form-input>
+        <sc-form-input required="true" placeholder="Adresa de email" type="email" id="email" name="email"></sc-form-input>
+        <sc-form-textarea required="true" placeholder="Mesaj" type="message" id="message" name="message" rows="5"></sc-form-textarea>
+        <sc-form-submit text="TRIMITE"></sc-form-submit>
+      </form>
+    </div>
+  </div>
+{% endblock %}

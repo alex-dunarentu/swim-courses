@@ -1,0 +1,50 @@
+@font-face {
+  font-family: "Baloo 2";
+  src: url("../assets/fonts/Baloo2-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Baloo 2";
+  src: url("../assets/fonts/Baloo2-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Baloo 2";
+  src: url("../assets/fonts/Baloo2-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Baloo 2";
+  src: url("../assets/fonts/Baloo2-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+:root {
+  --primary-white: #ffffff;
+  --primary-black: #000000;
+  --off-white: #fbfbfb;
+  --gray: #6b665d;
+  --dark-brown: #4a310a;
+  --medium-brown: #63430c;
+  --light-brown: #7c550e;
+  --beige-brown: #966810;
+}
+
+body {
+  font-family: "Baloo 2", cursive;
+  color: var(--gray);
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  padding-top: 50px;
+  flex: 1;
+}

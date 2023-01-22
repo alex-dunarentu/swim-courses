@@ -1,0 +1,39 @@
+{
+  "name": "swim-courses",
+  "version": "1.0.0",
+  "description": "A repository that contains all the code and assets for a website dedicated to providing information and registration for swimming courses. The website is built using Eleventy, a simple and powerful static site generator and it will include information on different types of courses, scheduling, pricing, and location.",
+  "main": "index.js",
+  "scripts": {
+    "clean": "rimraf public",
+    "build": "npm-run-all build:*",
+    "build:eleventy": "npx @11ty/eleventy",
+    "build:webpack": "webpack --mode production",
+    "start": "npm-run-all --parallel start:*",
+    "start:eleventy": "npx @11ty/eleventy --serve",
+    "start:webpack": "webpack --mode development --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alex-dunarentu/swim-courses.git"
+  },
+  "keywords": [],
+  "author": "Alexandru Dunărențu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alex-dunarentu/swim-courses/issues"
+  },
+  "homepage": "https://github.com/alex-dunarentu/swim-courses#readme",
+  "devDependencies": {
+    "@11ty/eleventy": "^1.0.2",
+    "clean-css": "^5.3.2",
+    "lit-css-loader": "^2.0.0",
+    "npm-run-all": "^4.1.5",
+    "terser": "^5.16.1",
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.1"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "lit": "^2.6.1"
+  }
+}
