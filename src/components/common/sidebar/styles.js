@@ -99,4 +99,10 @@ export const styles = css`
     opacity: 0;
     background-color: rgba(0, 0, 0, 0.8);
   }
+  .fb-page {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
 `;

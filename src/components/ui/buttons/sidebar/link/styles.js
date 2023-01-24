@@ -11,7 +11,7 @@ export const styles = css`
     background-color: var(--primary-white);
     border: 2px solid var(--dark-brown);
     border-radius: 8px;
-    color: var(--gray);
+    color: var(--dark-brown);
     cursor: pointer;
     transition: 250ms all ease-in;
     font-weight: 500;

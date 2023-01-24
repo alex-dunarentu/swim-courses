@@ -7,6 +7,73 @@ eleventyComputed:
 
 {% extends "base.html" %}
 
+{% block styles %}
+  {% set css %}
+  {% include "src/assets/styles/pages/about/index.css" %}
+  {% endset %}
+  <style>
+    {{css | cssmin | safe}}
+  </style>
+{% endblock %}
+
+{% set images = ["/assets/images/slide-3.jpeg", "/assets/images/slide-2.jpeg", "/assets/images/slide-1.jpeg"] %}
+{% set testimonials = ["Cursurile de înot cu Alin au fost o experiență minunată pentru copilul meu. Nu numai că a învățat să înoate într-un mod sigur și eficient, dar a și dezvoltat încrederea și îndemânarea în apă. Recomand cu încredere cursurile lui Alin!", "Sunt foarte mulțumit de progresele pe care le-a făcut fiul meu în timpul cursurilor de înot cu Rusen Alin. Instructorul este atent și dedicat, iar metodele sale de învățare sunt eficiente și distractive. Recomand!", "Am început cursurile de înot cu Rusen ca începător și acum, după doar câteva luni, mă simt în siguranță și încrezător în apă. Instructorul este profesionist și pasionat, iar atmosfera din cadrul cursurilor este relaxată și încurajatoare. Recomand cu încredere.", "Cursurile de înot cu Rusen Alin au fost o experiență fantastică pentru fiica mea. În scurt timp și-a îmbunătățit încrederea și condiția fizică. Cursuri de nota 10!", "L-am înscris pe fiul meu la ședințele cu Alin pentru a-i îmbunătăți încrederea și îndemânarea în apă și am fost impresionat de progresele pe care le-a făcut în doar câteva săptămâni. Instructorul este atent și dedicat, iar metodele sale de învățare sunt eficiente. Recomand cu încredere aceste cursuri!"] %}
+
 {% block content %}
-    Despre
+  <div class="Hero">
+    <sc-slider slotsCount='{{ images.length }}' transitionDuration='500' autoplayInterval='3000' enableAutoplay='true' slidesToShow='1' loop='true' slideGap='0px'>
+      {% for image in images %}
+        <img slot='{{ loop.index }}' src="{{ image }}" alt="Gallery image"/>
+      {% endfor %}
+    </sc-slider>
+    <svg class="ShapeDesign" fill="#ffffff" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 1440 100" preserveAspectRatio="none">
+      <path d="M0,99.0022541 C70.4867844,74.0819293 152.340696,61.621767 245.561736,61.621767 C385.393296,61.621767 474.358074,87.0726822 576.425016,87.0726822 C678.491959,87.0726822 882.037667,47 1027.74919,47 C1124.8902,47 1262.30714,56.9770271 1440,76.9310813 L1440,100 L0,99.0022541 Z"></path>
+      <path d="M7.74223122e-15,99.0022541 L0,47 C79.0884603,54.3964488 149.931197,65.0788943 212.528211,79.0473366 C306.423732,100 458.030629,47 654.93682,47 C786.207615,47 924.562008,55.6670424 1070,73.0011271 L1070,100 L7.74223122e-15,99.0022541 Z" fill-opacity="0.5"></path>
+      <path d="M1440,100 L1440,47.2401939 C1398.99746,33.7467313 1338.77711,27 1259.33894,27 C1140.1817,27 1071.97291,47.2401939 1007.37768,47.2401939 C942.782449,47.2401939 776.330419,27 619.516616,27 C514.974081,27 372.349276,39.1666667 191.642201,63.5 L0,100 L1440,100 Z" fill-opacity="0.5"></path>
+    </svg>
+    <h1 class="Title">
+      Despre
+    </h1>
+  </div>
+  <div class="Content">
+    <div class="AboutSection">
+      <div class="AboutSectionLeft">
+        <h2 class="ContentTitle">
+        Rusen Alin
+        </h2>
+        <div class="ContentDescription">
+          Cu o pasiune pentru înot care a început la vârsta de 4 ani, Rusen Alin a urcat treptele podiumului atât pe plan național, cât și internațional.
+          <br/>
+          <br/>
+          Acum, ca instructor de înot și student al Universității Naționale de Educație Fizică și Sport din București, el își dedică timpul ajutând copiii să-și învingă frica de apă și să practice înotul cu plăcere, transformând bazinul într-o a doua casă pentru ei.
+          <br/>
+          <br/>
+          Oferind o primă ședință gratuită pentru copii, Rusen vă invită să încercați și să descoperiți pasiunea pentru înot.
+        </div>
+      </div>
+      <div class="AboutSectionRight">
+        <img src="/assets/images/medals.jpg" alt="Medalii" width="300px" height="400px"/>
+      </div>
+    </div>
+    <div class="Testimonials">
+      <span>Vezi ce au de spus clienții</span>
+      <h2 class="ContentTitle">
+        Testimoniale
+      </h2>
+      <div class="TestimonialContent">
+        <sc-slider slotsCount='{{ testimonials.length }}' includeNavigation='true' transitionDuration='500' slidesToShow='1' loop='true' slideGap='50px'>
+          {% for testimonial in testimonials %}
+            <p slot='{{ loop.index }}'>
+              <img src="/assets/images/reviews.svg" alt="5 Stele"/>
+              <br/>
+              {{ testimonial }}
+            </p>
+          {% endfor %}
+        </sc-slider>
+      </div>
+    </div>
+    <div class="Location">
+      <iframe style="height:100%;width:100%;border:0;" frameborder="0" src="https://www.google.com/maps/embed/v1/place?q=Complexul+Sportiv+Naţional+Lia+Manoliu,+Bulevardul+Basarabia,+Bucharest,+Romania&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8"></iframe>
+    </div>
+  </div>
 {% endblock %}

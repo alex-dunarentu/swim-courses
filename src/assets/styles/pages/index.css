@@ -1,19 +1,64 @@
+.Cover {
+  position: relative;
+  top: -50px;
+  height: 60vh;
+  width: 100%;
+}
+
+.Cover img:not([class]) {
+  min-width: 100%;
+  height: 60vh;
+  object-fit: cover;
+  object-position: center;
+}
+
+.ShapeDesign {
+  position: absolute;
+  width: 100%;
+  height: 13%;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  z-index: 1;
+}
+
+.PageTitle {
+  padding: 0 20px;
+  text-align: center;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 600;
+  font-size: 72px;
+  color: var(--primary-white);
+  text-shadow: 3px 3px 3px var(--primary-black);
+  letter-spacing: 0.1em;
+  line-height: 1;
+}
 .Hero {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 100px 20px;
+  padding: 0 20px 100px;
   width: 100%;
 }
 
 .Hero > img {
   height: 65px;
   width: auto;
-  margin-bottom: 100px;
+  margin-top: 30px;
+  margin-bottom: 80px;
 }
 
 .Title {
+  text-align: center;
   font-weight: 500;
   font-size: 56px;
   color: var(--beige-brown);
@@ -21,7 +66,7 @@
 }
 
 .Description {
-  font-weight: 500;
+  font-weight: 400;
   font-size: 22px;
   text-align: center;
   max-width: 1000px;
@@ -29,18 +74,24 @@
 }
 
 .Content {
-  max-width: 1100px;
-  padding: 0 20px;
-  margin: 0 auto;
+  width: 100%;
 }
 
 .Cards {
+  max-width: 1100px;
+  padding: 0 20px;
+  margin: 0 auto;
   display: grid;
   grid-gap: 20px;
   grid-template-columns: repeat(auto-fit, minmax(25ch, 1fr));
 }
 
+.ContactWrapper {
+  background-color: #ebebeb;
+}
+
 .Contact {
+  padding: 70px 20px 0;
   margin: 100px auto 0;
   display: flex;
   flex-direction: column;
@@ -83,7 +134,7 @@
   background-color: var(--primary-white);
   border: 2px solid var(--dark-brown);
   border-radius: 8px;
-  color: var(--gray);
+  color: var(--dark-brown);
   cursor: pointer;
   transition: all 250ms ease-in 0s;
   font-weight: 500;
@@ -111,4 +162,10 @@
 
 .Textarea:focus {
   box-shadow: 0 0 0 3px #966810;
+}
+
+@media screen and (max-width: 400px) {
+  .Title {
+    font-size: 52px;
+  }
 }

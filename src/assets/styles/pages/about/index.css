@@ -1,0 +1,134 @@
+.Hero {
+  height: 60vh;
+  width: 100%;
+  position: relative;
+}
+
+.ShapeDesign {
+  position: absolute;
+  width: 100%;
+  height: 13%;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  z-index: 1;
+}
+
+.Title {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 600;
+  font-size: 72px;
+  color: var(--primary-white);
+  text-shadow: 3px 3px 3px var(--primary-black);
+  letter-spacing: 0.1em;
+}
+
+.AboutSection {
+  max-width: 1140px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 100px;
+  padding: 100px 20px;
+  flex-wrap: wrap;
+}
+
+.AboutSectionLeft {
+  max-width: 525px;
+  text-align: center;
+}
+
+.AboutSectionRight {
+  min-width: max-content;
+}
+
+.AboutSectionRight img {
+  border-radius: 8px;
+}
+
+.ContentTitle {
+  margin-bottom: 50px;
+  letter-spacing: 0.1em;
+  text-align: center;
+  font-weight: 500;
+  font-size: 56px;
+  color: var(--beige-brown);
+}
+
+.ContentDescription {
+  font-weight: 400;
+  font-size: 22px;
+  text-align: center;
+}
+
+.Hero img {
+  min-width: 100%;
+  height: 60vh;
+  object-fit: cover;
+  object-position: center;
+}
+
+.Location {
+  height: 500px;
+  width: 100%;
+}
+
+.Testimonials {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 650px;
+  background-color: #ebebeb;
+}
+
+.Testimonials > span {
+  padding-top: 80px;
+  text-align: center;
+  display: block;
+  color: var(--primary-black);
+  font-size: 22px;
+}
+
+.Testimonials .ContentTitle {
+  margin: 0;
+}
+
+.TestimonialContent {
+  flex: 1;
+  max-width: 525px;
+  width: 100%;
+  padding: 50px 20px 80px;
+}
+
+.Testimonials p {
+  pointer-events: none;
+  user-select: none;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  min-width: 100%;
+  font-weight: 400;
+  font-size: 22px;
+  text-align: center;
+  color: var(--primary-black);
+}
+
+@media screen and (max-width: 500px) {
+  .AboutSectionLeft > h2 {
+    line-height: 1;
+  }
+  .Testimonials > h2 {
+    font-size: 42px;
+  }
+}

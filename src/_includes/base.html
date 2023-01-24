@@ -36,6 +36,8 @@
         {% block styles %}{% endblock %}
     </head>
     <body>
+        <div id="fb-root"></div>
+        <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v15.0" nonce="ziUvZle0"></script>
         <sc-header></sc-header>
         <sc-sidebar></sc-sidebar>
         <main>
@@ -47,5 +49,6 @@
 
         <!-- Scripts -->
         <script src="/index.js"></script>
+        {% block scripts %}{% endblock %}
     </body>
 </html>
