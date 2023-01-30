@@ -1,4 +1,4 @@
-function loadScript(src, callback) {
+const loadScript = (src, callback) => {
   var script = document.createElement('script');
   script.src = src;
   script.async = true;
@@ -10,7 +10,7 @@ function loadScript(src, callback) {
     }
   };
   document.querySelector('head').appendChild(script);
-}
+};
 
 const registerServiceWorker = async () => {
   if ('serviceWorker' in navigator) {
@@ -31,7 +31,25 @@ const registerServiceWorker = async () => {
   }
 };
 
+const addResourcesToCache = async (resources) => {
+  const cache = await caches.open('v1');
+  await cache.addAll(resources);
+};
+
 registerServiceWorker();
+
+self.addEventListener('install', (event) => {
+  event.waitUntil(
+    addResourcesToCache([
+      '/assets/fonts/Baloo2-Bold.ttf',
+      '/assets/fonts/Baloo2-Regular.ttf',
+      '/assets/fonts/Baloo2-SemiBold.ttf',
+      '/assets/fonts/Baloo2-Medium.ttf',
+      '/assets/images/logo.svg',
+    ])
+  );
+});
+
 loadScript('https://www.googletagmanager.com/gtag/js?id=G-MNDGKLC9EV', function () {
   window.dataLayer = window.dataLayer || [];
   function gtag() {
