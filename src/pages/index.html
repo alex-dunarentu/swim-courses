@@ -8,10 +8,9 @@ eleventyComputed:
 
 {% block styles %}
     {% set css %}
-    {% include "src/assets/styles/pages/index.css" %}
+        {% include "./index.css" %}
     {% endset %}
-    <style>
-        {{css | cssmin | safe}}</style>
+    <style>{{css | cssmin | safe}}</style>
 {% endblock %}
 
 {% set cards = [

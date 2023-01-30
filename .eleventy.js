@@ -7,6 +7,7 @@ require('dotenv').config();
 module.exports = function eleventyConfig(config) {
   config.addWatchTarget('src/components/');
   config.addWatchTarget('src/assets/');
+  config.addWatchTarget('src/pages/');
 
   config.addPassthroughCopy({ './src/assets': 'assets' });
   config.addPassthroughCopy('sw.js');
