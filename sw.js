@@ -11,11 +11,13 @@ const loadScript = (src, callback) => {
   };
   document.querySelector('head').appendChild(script);
 };
-
+console.log('test2');
 const registerServiceWorker = async () => {
+ console.log('test1');
   if ('serviceWorker' in navigator) {
+    console.log('test');
     try {
-      const registration = await navigator.serviceWorker.register('/sw.js', {
+      const registration = await navigator.serviceWorker.register('./sw.js', {
         scope: '/',
       });
       if (registration.installing) {
