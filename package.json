@@ -5,10 +5,10 @@
   "main": "index.js",
   "scripts": {
     "clean": "rimraf public",
-    "build": "npm-run-all build:*",
+    "build": "npm-run-all clean build:*",
     "build:eleventy": "npx @11ty/eleventy",
     "build:webpack": "webpack --mode production",
-    "start": "npm-run-all --parallel start:*",
+    "start": "npm-run-all clean --parallel start:*",
     "start:eleventy": "npx @11ty/eleventy --serve",
     "start:webpack": "webpack --mode development --watch"
   },
