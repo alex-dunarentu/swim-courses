@@ -27,8 +27,8 @@
 
         <!-- Styles -->
         {% set css %}
-            {% include "../assets/styles/normalize.css" %}
-            {% include "../assets/styles/root.css" %}
+            {% include "src/assets/styles/normalize.css" %}
+            {% include "src/assets/styles/root.css" %}
         {% endset %}
         <style>
             {{css | cssmin | safe}}
@@ -37,9 +37,9 @@
     </head>
     <body>
         <div id="fb-root"></div>
-        <!-- <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v15.0" nonce="ziUvZle0"></script> -->
         <sc-header></sc-header>
         <sc-sidebar></sc-sidebar>
+        
         <main>
             {% block content %}
                 {{ content | safe }}
@@ -49,6 +49,7 @@
 
         <!-- Scripts -->
         <script src="/index.js"></script>
+        {% include "../templates/service-worker.html" %}
         {% block scripts %}{% endblock %}
     </body>
 </html>

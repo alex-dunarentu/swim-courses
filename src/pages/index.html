@@ -4,15 +4,14 @@ eleventyComputed:
   description: "{{ meta.siteDescription }}"
 ---
 
-{% extends "base.html" %}
+{% extends "layouts/base.html" %}
 
 {% block styles %}
-  {% set css %}
-  {% include "src/assets/styles/pages/index.css" %}
-  {% endset %}
-  <style>
-    {{css | cssmin | safe}}
-  </style>
+    {% set css %}
+    {% include "src/assets/styles/pages/index.css" %}
+    {% endset %}
+    <style>
+        {{css | cssmin | safe}}</style>
 {% endblock %}
 
 {% set cards = [
@@ -34,45 +33,61 @@ eleventyComputed:
 {% set images = ["/assets/images/home-2.jpg", "/assets/images/home-3.jpg", "/assets/images/home-1.jpg"] %}
 
 {% block content %}
-  <div class="Cover">
-    <sc-slider slotsCount='{{ images.length }}' transitionDuration='500' autoplayInterval='3000' enableAutoplay='true' slidesToShow='1' loop='true' slideGap='0px'>
-      {% for image in images %}
-        <img slot='{{ loop.index }}' src="{{ image }}" alt="Gallery image"/>
-      {% endfor %}
-    </sc-slider>
-    <svg class="ShapeDesign" fill="#ffffff" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 1440 100" preserveAspectRatio="none">
-      <path d="M0,99.0022541 C70.4867844,74.0819293 152.340696,61.621767 245.561736,61.621767 C385.393296,61.621767 474.358074,87.0726822 576.425016,87.0726822 C678.491959,87.0726822 882.037667,47 1027.74919,47 C1124.8902,47 1262.30714,56.9770271 1440,76.9310813 L1440,100 L0,99.0022541 Z"></path>
-      <path d="M7.74223122e-15,99.0022541 L0,47 C79.0884603,54.3964488 149.931197,65.0788943 212.528211,79.0473366 C306.423732,100 458.030629,47 654.93682,47 C786.207615,47 924.562008,55.6670424 1070,73.0011271 L1070,100 L7.74223122e-15,99.0022541 Z" fill-opacity="0.5"></path>
-      <path d="M1440,100 L1440,47.2401939 C1398.99746,33.7467313 1338.77711,27 1259.33894,27 C1140.1817,27 1071.97291,47.2401939 1007.37768,47.2401939 C942.782449,47.2401939 776.330419,27 619.516616,27 C514.974081,27 372.349276,39.1666667 191.642201,63.5 L0,100 L1440,100 Z" fill-opacity="0.5"></path>
-    </svg>
-    <h1 class="PageTitle">
-      Cursuri de înot
-    </h1>
-  </div>
-  <div class="Hero">
-    <img class="ImageLogo" height="65px" width="auto" src="/assets/images/logo.svg" alt="{{ meta.siteName }}"/>
-    <h2 class="Description">
-       Rusen Alin, instructor de înot care a urcat treptele podiumului atât pe plan național cât și internațional, vă invită să descoperiți înotul alături de el la Complexul Sportiv Național Lia Manoliu.
-    </h2>
-  </div>
-  <div class="Content">
-    <div class="Cards">
-      {% for card in cards %}
-        <sc-card title='{{ card.title }}' description='{{ card.description }}' url='{{ card.url }}'></sc-card>
-      {% endfor %}
+    <div class="Cover">
+        <sc-slider slotsCount='{{ images.length }}' transitionDuration='500' autoplayInterval='3000' enableAutoplay='true' slidesToShow='1' loop='true' slideGap='0px'>
+            {% for image in images %}
+                <img slot='{{ loop.index }}' src="{{ image }}" alt="Gallery image"/>
+            {% endfor %}
+        </sc-slider>
+        <svg
+            class="ShapeDesign"
+            fill="#ffffff"
+            xmlns="http://www.w3.org/2000/svg"
+            version="1.1"
+            viewBox="0 0 1440 100"
+            preserveAspectRatio="none">
+            <path d="M0,99.0022541 C70.4867844,74.0819293 152.340696,61.621767 245.561736,61.621767 C385.393296,61.621767
+                474.358074,87.0726822 576.425016,87.0726822 C678.491959,87.0726822 882.037667,47 1027.74919,47 C1124.8902,47
+                1262.30714,56.9770271 1440,76.9310813 L1440,100 L0,99.0022541 Z"></path>
+            <path
+                d="M7.74223122e-15,99.0022541 L0,47 C79.0884603,54.3964488 149.931197,65.0788943 212.528211,79.0473366 C306.423732,100
+                    458.030629,47 654.93682,47 C786.207615,47 924.562008,55.6670424 1070,73.0011271 L1070,100 L7.74223122e-15,99.0022541 Z"
+                fill-opacity="0.5"></path>
+            <path
+                d="M1440,100 L1440,47.2401939 C1398.99746,33.7467313 1338.77711,27 1259.33894,27 C1140.1817,27 1071.97291,47.2401939
+                    1007.37768,47.2401939 C942.782449,47.2401939 776.330419,27 619.516616,27 C514.974081,27 372.349276,39.1666667
+                    191.642201,63.5 L0,100 L1440,100 Z"
+                fill-opacity="0.5"></path>
+        </svg>
+        <h1 class="PageTitle">
+            Cursuri de înot
+        </h1>
     </div>
-    <div class="ContactWrapper">
-      <div class="Contact">
-        <h1 class="Title">Contact</h1>
-        <form action="https://formspree.io/f/xwkjpazr" method="POST" class="ContactForm">
-          <sc-form-input type="hidden" name="_subject" value="Cursuri înot TmT: Mesaj nou"></sc-form-input>
-          <sc-form-input required="true" placeholder="Nume" type="text" id="name" name="name"></sc-form-input>
-          <sc-form-input required="true" placeholder="Telefon" type="tel" id="phone" name="phone"></sc-form-input>
-          <sc-form-input required="true" placeholder="Adresa de email" type="email" id="email" name="email"></sc-form-input>
-          <sc-form-textarea required="true" placeholder="Mesaj" type="message" id="message" name="message" rows="5"></sc-form-textarea>
-          <sc-form-submit text="TRIMITE"></sc-form-submit>
-        </form>
-      </div>
+    <div class="Hero">
+        <img class="ImageLogo" height="65px" width="auto" src="/assets/images/logo.svg" alt="{{ meta.siteName }}"/>
+        <h2 class="Description">
+            Rusen Alin, instructor de înot care a urcat treptele podiumului atât pe plan național cât și internațional, vă invită să
+            descoperiți înotul alături de el la Complexul Sportiv Național Lia Manoliu.
+        </h2>
     </div>
-  </div>
+    <div class="Content">
+        <div class="Cards">
+            {% for card in cards %}
+                <sc-card title='{{ card.title }}' description='{{ card.description }}' url='{{ card.url }}'></sc-card>
+            {% endfor %}
+        </div>
+        <div class="ContactWrapper">
+            <div class="Contact">
+                <h1 class="Title">Contact</h1>
+                <form action="https://formspree.io/f/xwkjpazr" method="POST" class="ContactForm">
+                    <sc-form-input type="hidden" name="_subject" value="Cursuri înot TmT: Mesaj nou"></sc-form-input>
+                    <sc-form-input required="true" placeholder="Nume" type="text" id="name" name="name"></sc-form-input>
+                    <sc-form-input required="true" placeholder="Telefon" type="tel" id="phone" name="phone"></sc-form-input>
+                    <sc-form-input required="true" placeholder="Adresa de email" type="email" id="email" name="email"></sc-form-input>
+                    <sc-form-textarea required="true" placeholder="Mesaj" type="message" id="message" name="message" rows="5"></sc-form-textarea>
+                    <sc-form-submit text="TRIMITE"></sc-form-submit>
+                </form>
+            </div>
+        </div>
+    </div>
 {% endblock %}
