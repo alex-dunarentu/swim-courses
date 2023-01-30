@@ -34,6 +34,9 @@
             {{css | cssmin | safe}}
         </style>
         {% block styles %}{% endblock %}
+
+        <!-- Scripts -->
+        {% include "../templates/third-party-scripts.html" %}
     </head>
     <body>
         <div id="fb-root"></div>

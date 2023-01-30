@@ -1,4 +1,4 @@
-/* cache resources */
+// cache resources
 const addResourcesToCache = async (resources) => {
   const cache = await caches.open('v1');
   await cache.addAll(resources);
@@ -12,29 +12,18 @@ self.addEventListener('install', (event) => {
       '/assets/fonts/Baloo2-SemiBold.ttf',
       '/assets/fonts/Baloo2-Medium.ttf',
       '/assets/images/logo.svg',
+      'https://www.googletagmanager.com/gtag/js?id=G-MNDGKLC9EV',
     ])
   );
 });
 
-/* load google analytics */
-importScripts('https://www.googletagmanager.com/gtag/js?id=G-MNDGKLC9EV');
-
-window.dataLayer = window.dataLayer || [];
-function gtag() {
-  dataLayer.push(arguments);
-}
-gtag('js', new Date());
-gtag('config', 'G-MNDGKLC9EV');
-
-self.addEventListener('fetch', function (event) {
-  event.respondWith(
-    fetch(event.request).then(function (response) {
-      if (response.status === 200) {
-        gtag('config', 'G-MNDGKLC9EV', {
-          page_path: event.request.url,
-        });
-      }
-      return response;
-    })
-  );
+// serve the response from the cache instead of making a network request
+self.addEventListener('fetch', (event) => {
+  if (event.request.url.includes('https://www.googletagmanager.com/gtag/js?id=G-MNDGKLC9EV')) {
+    event.respondWith(
+      caches.match(event.request).then((response) => {
+        return response || fetch(event.request);
+      })
+    );
+  }
 });
