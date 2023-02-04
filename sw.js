@@ -12,10 +12,10 @@ const addResourcesToCache = async (resources) => {
 self.addEventListener('install', (event) => {
   event.waitUntil(
     addResourcesToCache([
-      '/assets/fonts/Baloo2-Bold.ttf',
-      '/assets/fonts/Baloo2-Regular.ttf',
-      '/assets/fonts/Baloo2-SemiBold.ttf',
-      '/assets/fonts/Baloo2-Medium.ttf',
+      '/assets/fonts/Baloo2-Bold.woff2',
+      '/assets/fonts/Baloo2-Regular.woff2',
+      '/assets/fonts/Baloo2-SemiBold.woff2',
+      '/assets/fonts/Baloo2-Medium.woff2',
       '/assets/images/favicon.png',
       '/assets/images/logo.svg',
       '/assets/images/reviews.svg',
