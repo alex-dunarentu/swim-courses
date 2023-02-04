@@ -10,7 +10,7 @@
     "build:webpack": "webpack --mode production",
     "start": "npm-run-all clean --parallel start:*",
     "start:eleventy": "npx @11ty/eleventy --serve",
-    "start:webpack": "webpack --mode development --watch"
+    "start:webpack": "webpack --watch"
   },
   "repository": {
     "type": "git",
@@ -34,6 +34,7 @@
     "webpack-cli": "^5.0.1"
   },
   "dependencies": {
+    "@builder.io/partytown": "^0.7.5",
     "blaze-slider": "^1.9.1",
     "dotenv": "^16.0.3",
     "lit": "^2.6.1"

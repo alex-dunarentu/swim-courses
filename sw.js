@@ -1,29 +1,12 @@
-// use workbox to configure the `gtag.js` script to be cached and used offline
-self.importScripts('https://storage.googleapis.com/workbox-cdn/releases/5.1.3/workbox-sw.js');
+const VERSION = '1.1'; // 04-02-2023
 
-workbox.googleAnalytics.initialize({
-  parameterOverrides: {
-    cd1: 'offline',
-  },
-  hitFilter: (params) => {
-    const queueTimeInSeconds = Math.round(Date.now() / 1000) - params.queueTime;
-    params.cd1 = queueTimeInSeconds;
-    return true;
-  },
-});
-
-// register a route for the `gtag.js` script using Workbox
-workbox.routing.registerRoute(
-  new RegExp('https://www.googletagmanager.com/gtag/js'),
-  new workbox.strategies.StaleWhileRevalidate({
-    cacheName: 'gtag-js',
-  })
-);
-
-// cache resources
 const addResourcesToCache = async (resources) => {
-  const cache = await caches.open('v1');
-  await cache.addAll(resources);
+  const cache = await caches.open(`v${VERSION}`);
+  try {
+    await cache.addAll(resources);
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 self.addEventListener('install', (event) => {
@@ -33,19 +16,15 @@ self.addEventListener('install', (event) => {
       '/assets/fonts/Baloo2-Regular.ttf',
       '/assets/fonts/Baloo2-SemiBold.ttf',
       '/assets/fonts/Baloo2-Medium.ttf',
+      '/assets/images/favicon.png',
       '/assets/images/logo.svg',
-      'https://www.googletagmanager.com/gtag/js?id=G-MNDGKLC9EV',
+      '/assets/images/reviews.svg',
+      '/assets/images/home-1.jpg',
+      '/assets/images/home-2.jpg',
+      '/assets/images/home-3.jpg',
+      '/assets/images/slide-1.jpeg',
+      '/assets/images/slide-2.jpeg',
+      '/assets/images/slide-3.jpeg',
     ])
   );
-});
-
-// serve the response from the cache instead of making a network request
-self.addEventListener('fetch', (event) => {
-  if (event.request.url.includes('https://www.googletagmanager.com/gtag/js?id=G-MNDGKLC9EV')) {
-    event.respondWith(
-      caches.match(event.request).then((response) => {
-        return response || fetch(event.request);
-      })
-    );
-  }
 });

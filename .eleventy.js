@@ -10,11 +10,16 @@ module.exports = function eleventyConfig(config) {
   config.addWatchTarget('src/pages/');
 
   config.addPassthroughCopy({ './src/assets': 'assets' });
+  config.addPassthroughCopy({ './node_modules/@builder.io/partytown/lib': '~partytown'});
+  config.addPassthroughCopy({ './node_modules/@builder.io/partytown/integration': '~partytown/integration'});
   config.addPassthroughCopy('sw.js');
+
+  config.addFilter('log', (value) => {
+    console.log('DEBUG', value);
+  });
   config.addFilter('cssmin', function (code) {
     return process.env.NODE_ENV === 'production' ? CleanCSS({}).minify(code).styles : code;
   });
-
   config.addNunjucksAsyncFilter('jsmin', async function (code, callback) {
     try {
       const minified = await minify(code);
@@ -43,10 +48,6 @@ module.exports = function eleventyConfig(config) {
         });
       },
     },
-  });
-
-  config.addFilter('log', (value) => {
-    console.log('DEBUG', value);
   });
 
   return {

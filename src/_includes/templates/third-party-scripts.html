@@ -1,11 +1,25 @@
-<!-- Google tag (gtag.js) -->
-<script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-MNDGKLC9EV"></script>
+<!-- Partytown -->
 <script>
- window.dataLayer = window.dataLayer || [];
- function gtag() {
-  dataLayer.push(arguments);
- }
- gtag('js', new Date());
+  partytown = {
+    forward: ['dataLayer.push'],
+  };
+</script>
+<script type="module">
+  import { partytownSnippet } from '/~partytown/integration/index.mjs';
+  const snippetText = partytownSnippet();
+  const el = document.createElement('script');
+  el.innerText = snippetText;
+  document.body.appendChild(el);
+</script>
 
- gtag('config', 'G-MNDGKLC9EV');
+<!-- Google tag (gtag.js) -->
+<script type="text/partytown" async="async" src="https://www.googletagmanager.com/gtag/js?id=G-MNDGKLC9EV"></script>
+<script type="text/partytown">
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag('js', new Date());
+
+  gtag('config', 'G-MNDGKLC9EV');
 </script>
