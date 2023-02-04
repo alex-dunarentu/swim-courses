@@ -15,7 +15,7 @@ export class Sidebar extends LitElement {
     this.links = [
       { url: '/', title: 'Acasă' },
       { url: '/despre/', title: 'Despre' },
-      { url: '/program/', title: 'Program' },
+      { url: '/tarife/', title: 'Tarife' },
       { url: '/intrebari-frecvente/', title: 'Întrebări Frecvente' },
     ];
   }
