@@ -1,0 +1,114 @@
+---
+permalink: /tarife/
+eleventyComputed:
+  title: "Tarife | {{ meta.siteName }}"
+  description: "{{ meta.siteDescription }}"
+---
+
+{% extends "layouts/base.html" %}
+
+{% block styles %}
+  {% set css %}
+  {% include "./index.css" %}
+  {% endset %}
+  <style>
+    {{css | cssmin | safe}}</style>
+{% endblock %}
+
+{% block content %}
+  <div class="Container">
+    <div class="Hero">
+      <h1 class="Title">
+        Tarife
+      </h1>
+      <p class="Description">
+        Ne dorim să oferim tuturor posibilitatea de a învăța să înoate, indiferent de vârstă. Astfel, ne-am structurat cursurile în
+        două categorii: pentru copii cu vârsta peste 3 ani și pentru adulți.<br/><br/>
+        Fiecare categorie are multiple variante de program, adaptate nevoilor și disponibilității fiecăruia. În continuare, vă
+        prezentăm detalii despre numărul de ședințe, modul în care acestea se desfășoară și costurile aferente, într-un tabel
+        clar și concis.
+      </p>
+    </div>
+    <div class="Content">
+      <h2 class="ContentTitle">
+        Copii cu vârsta peste 3 ani
+      </h2>
+      <div class="TableContainer">
+        <table class="Table">
+          <thead>
+            <tr>
+              <th scope="col">Nr. ședințe</th>
+              <th scope="col">Tip</th>
+              <th scope="col">Preț</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>4</td>
+              <td>Grup</td>
+              <td>300 RON</td>
+            </tr>
+            <tr>
+              <td>8</td>
+              <td>Grup</td>
+              <td>450 RON</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>Individual</td>
+              <td>400 RON</td>
+            </tr>
+            <tr>
+              <td>8</td>
+              <td>Individual</td>
+              <td>650 RON</td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="ContentDescription">
+          *Atenție! Ședințele în grup de 4 sau 8 persoane au o valabilitate de 4 săptămâni, respectiv 2 luni.
+        </p>
+      </div>
+      <h2 class="ContentTitle">
+        Adulți
+      </h2>
+      <div class="TableContainer">
+        <table class="Table">
+          <thead>
+            <tr>
+              <th scope="col">Nr. ședințe</th>
+              <th scope="col">Tip</th>
+              <th scope="col">Preț</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>4</td>
+              <td>Grup</td>
+              <td>200 RON</td>
+            </tr>
+            <tr>
+              <td>8</td>
+              <td>Grup</td>
+              <td>300 RON</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>Individual</td>
+              <td>400 RON</td>
+            </tr>
+            <tr>
+              <td>8</td>
+              <td>Individual</td>
+              <td>650 RON</td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="ContentDescription">
+          *Atenție! Ședințele în grup de 4 sau 8 persoane au o valabilitate de 2 săptămâni, respectiv 4 săptămâni.
+        </p>
+      </div>
+
+    </div>
+  </div>
+{% endblock %}

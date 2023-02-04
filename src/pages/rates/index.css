@@ -1,0 +1,77 @@
+.Container {
+  max-width: 1100px;
+  padding: 0 20px;
+  margin: 0 auto;
+  margin-bottom: 100px;
+}
+
+.Title {
+  margin: 50px 0;
+  letter-spacing: 0.1em;
+  text-align: center;
+  font-weight: 500;
+  font-size: 56px;
+  color: var(--beige-brown);
+}
+
+.Description,
+.ContentDescription {
+  font-weight: 400;
+  font-size: 22px;
+  text-align: justify;
+}
+
+.ContentTitle {
+  margin: 50px 0;
+  text-align: center;
+  font-weight: 500;
+  font-size: 40px;
+  color: var(--beige-brown);
+}
+
+.TableContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 50px;
+}
+
+.Table {
+  padding: 20px;
+  border: 1px solid #dee2e6;
+  border-radius: 5px;
+  text-align: left;
+  border-spacing: 0px;
+}
+
+th,
+td {
+  padding: 0 20px 8px 0;
+}
+
+tr > th:last-child,
+tr > td:last-child {
+  padding-right: 0;
+}
+
+td {
+  padding-top: 8px;
+  border-bottom: 1px solid #dee2e6;
+}
+
+tr:last-child > td {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+th {
+  min-width: max-content;
+  border-bottom: 1px solid #212529;
+}
+
+.TableContainer .ContentDescription {
+  font-style: italic;
+  font-size: 18px;
+  max-width: 400px;
+}
