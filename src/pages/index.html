@@ -10,7 +10,7 @@ eleventyComputed:
     {% set css %}
         {% include "./index.css" %}
     {% endset %}
-    <style>{{css | cssmin | safe}}</style>
+    <style>{{ css | cssmin | safe }}</style>
 {% endblock %}
 
 {% set cards = [
@@ -23,9 +23,9 @@ eleventyComputed:
     description: 'Tarifele aplicabile cursurilor de înot și activităților care se desfășoară în cadrul complexului.',
     url: '/tarife/'
   }, {
-    title: 'Program de funcționare',
-    description: 'Informații despre programul de funcționare.',
-    url: '/program/'
+    title: 'Întrebări frecvente',
+    description: 'Aici puteți găsi toate răspunsurile posibilelor curiozități pe care le puteți avea.',
+    url: '/intrebari-frecvente/'
   }
 ] %}
 

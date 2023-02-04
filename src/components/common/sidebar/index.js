@@ -16,7 +16,7 @@ export class Sidebar extends LitElement {
       { url: '/', title: 'Acasă' },
       { url: '/despre/', title: 'Despre' },
       { url: '/program/', title: 'Program' },
-      { url: '/tarife/', title: 'Tarife' },
+      { url: '/intrebari-frecvente/', title: 'Întrebări Frecvente' },
     ];
   }
 
@@ -26,20 +26,6 @@ export class Sidebar extends LitElement {
         ${this.links.map(
           (link, index) => html` <sc-sidebar-link url=${link.url} title=${link.title} id=${`sidebar-link-${index}`}></sc-sidebar-link> `
         )}
-        <!-- <div
-          class="fb-page"
-          data-href="https://www.facebook.com/CursurideinotTmT/"
-          data-tabs=""
-          data-width=""
-          data-height=""
-          data-small-header="false"
-          data-adapt-container-width="true"
-          data-hide-cover="false"
-          data-show-facepile="true">
-          <blockquote cite="https://www.facebook.com/CursurideinotTmT/" class="fb-xfbml-parse-ignore">
-            <a href="https://www.facebook.com/CursurideinotTmT/">Cursuri Înot TmT</a>
-          </blockquote>
-        </div> -->
       </div>
       <div id="backdrop" @click=${this.toggleSidebar}></div>
       <style>

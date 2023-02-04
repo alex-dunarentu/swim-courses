@@ -1,0 +1,61 @@
+---
+permalink: /intrebari-frecvente/
+eleventyComputed:
+  title: "Întrebări Frecvente | {{ meta.siteName }}"
+  description: "{{ meta.siteDescription }}"
+---
+
+{% extends "layouts/base.html" %}
+
+{% set faqs = [
+  {
+    question: "Cum mă alătur?",
+    answer: "Evaluarea va fi necesară pentru copiii care se înscriu pentru prima dată sau după o perioadă de absență îndelungată de la lecțiile de înot, pentru a se stabili nivelul lor. Copiii mici sau începătorii în înot nu vor fi evaluați, însă vor avea nevoie de lecții individuale."
+  },
+  {
+    question: "Când este un moment bun pentru a începe lecțiile de înot?",
+    answer: "Oricând este un moment oportun. Instructorii sunt încântați să primească oricând noi înotători în clasă. Nu trebuie să așteptați începutul lunii pentru a începe. Programele noastre de înot încep de la vârsta de 3 ani și oferim o varietate mare de nivele ce vor potrivi nevoilor dumneavoastră."
+  },
+  {
+    question: "Care este programul de funcționare?",
+    answer: "Activitatea se desfășoară pe tot parcursul anului, cu excepția zilelor de sărbătoare națională."
+  },
+  {
+    question: "Câte lecții recomandați în fiecare săptămână?",
+    answer: "Lecțiile regulate și constante de înot vă vor ajuta să vă bucurați de apă și să învățați cum să înotați în siguranță. Programul nostru recomandă să participați la cel puțin o lecție de înot pe săptămână. Cu toate acestea, pentru un progres mai rapid și o prevenire mai bună a înecului, vă sugerăm să participați la cel puțin două lecții pe săptămână."
+  },
+  {
+    question: "Are rost să continui cursurile de înot iarna?",
+    answer: "Încurajăm participarea pe tot parcursul anului la toate programele noastre. Copiii, precum și adulții trebuie să continue să înoate pe tot parcursul iernii pentru a nu-și pierde abilitățile pe care le-au învățat în timpul lecțiilor și pentru a-și dezvolta mușchii. O pauză prelungită duce adesea la o scădere a nivelului de calificare. Este mult mai eficient atunci când există un program consistent și continuu în pregătire."
+  },
+  {
+    question: "De ce am nevoie?",
+    answer: "Veți avea nevoie de costum de baie/slip, prosop, șlapi, cască de înot, ochelari de protecție pentru înot.<br/><br/>Copiii sunt încurajați să poarte ochelarii de protecție pentru a preveni contactul cu clorul, iar pentru înotătorii de la nivelurile superioare se recomandă să aducă o sticlă de apă."
+  },
+  {
+    question: "La ce nivel va fi copilul meu?",
+    answer: "Înotătorii de la fiecare nivel vor avea o vârstă, abilități și standarde similare pe baza evaluării înotului. Copiii sunt evaluați continuu pentru un nivel adecvat, nu așteptăm până la sfârșitul trimestrului pentru a finaliza evaluările. Înotătorii vor fi plasați imediat la următorul nivel dacă sunt pregătiți.<br/><br/>Dacă înotătorul trebuie mutat la un alt nivel, părinții vor fi anunțați de către instructorul de înot pentru a reprograma cursul."
+  }
+] %}
+
+{% block styles %}
+    {% set css %}
+        {% include "./index.css" %}
+    {% endset %}
+    <style> {{ css | cssmin | safe }}</style>
+{% endblock %}
+
+{% block content %}
+  <div class="Container">
+    <div class="Hero">
+      <h1 class="Title">
+        Întrebări frecvente
+      </h1>
+    </div>
+    <div class="Content">
+      {% for faq in faqs %}
+        <sc-faq question="{{ faq.question }}" answer="{{ faq.answer }}"></sc-faq>
+      {% endfor %}
+    </div>
+  </div>
+{% endblock %}

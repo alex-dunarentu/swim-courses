@@ -11,7 +11,7 @@ eleventyComputed:
     {% set css %}
         {% include "./index.css" %}
     {% endset %}
-    <style> {{css | cssmin | safe}}</style>
+    <style> {{ css | cssmin | safe }}</style>
 {% endblock %}
 
 {% set images = ["/assets/images/slide-3.jpeg", "/assets/images/slide-2.jpeg", "/assets/images/slide-1.jpeg"] %}

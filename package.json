@@ -10,7 +10,7 @@
     "build:webpack": "webpack --mode production",
     "start": "npm-run-all clean --parallel start:*",
     "start:eleventy": "npx @11ty/eleventy --serve",
-    "start:webpack": "webpack --watch"
+    "start:webpack": "webpack --mode development --watch"
   },
   "repository": {
     "type": "git",

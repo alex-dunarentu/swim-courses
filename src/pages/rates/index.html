@@ -9,10 +9,9 @@ eleventyComputed:
 
 {% block styles %}
   {% set css %}
-  {% include "./index.css" %}
+    {% include "./index.css" %}
   {% endset %}
-  <style>
-    {{css | cssmin | safe}}</style>
+  <style>{{ css | cssmin | safe }}</style>
 {% endblock %}
 
 {% block content %}
@@ -46,12 +45,12 @@ eleventyComputed:
             <tr>
               <td>4</td>
               <td>Grup</td>
-              <td>300 RON</td>
+              <td>200 RON</td>
             </tr>
             <tr>
               <td>8</td>
               <td>Grup</td>
-              <td>450 RON</td>
+              <td>300 RON</td>
             </tr>
             <tr>
               <td>4</td>
@@ -85,22 +84,22 @@ eleventyComputed:
             <tr>
               <td>4</td>
               <td>Grup</td>
-              <td>200 RON</td>
+              <td>250 RON</td>
             </tr>
             <tr>
               <td>8</td>
               <td>Grup</td>
-              <td>300 RON</td>
+              <td>350 RON</td>
             </tr>
             <tr>
               <td>4</td>
               <td>Individual</td>
-              <td>400 RON</td>
+              <td>450 RON</td>
             </tr>
             <tr>
               <td>8</td>
               <td>Individual</td>
-              <td>650 RON</td>
+              <td>700 RON</td>
             </tr>
           </tbody>
         </table>
